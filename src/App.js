@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-
+import Category from './Components/Category';
+import Instruction from './Components/Instruction';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CategoryContext from './Components/Context/CategoryContext';
+import Quiz from './Components/Quiz';
+import Score from './Components/Score';
 function App() {
+  const [category, setCategory] = useState(null);
+  const [correctAns, setCorrectAns] = useState([]);
+  const [givenAns, setGivenAns] = useState([]);
+  const [questionsArray, setQuestionsArray] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CategoryContext.Provider value={{ category, setCategory, correctAns, setCorrectAns, givenAns, setGivenAns, questionsArray, setQuestionsArray }}>
+        <Router>
+          <Routes>
+            <Route path="/" exact element={<Category />} />
+            <Route path="/instruction" exact element={<Instruction />} />
+            <Route path="/quiz" exact element={<Quiz />} />
+            <Route path="/score" exact element={<Score />} />
+          </Routes>
+        </Router>
+      </CategoryContext.Provider>
+    </>
   );
 }
 

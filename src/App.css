@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+* {
+    -ms-overflow-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar {
+    display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+body,
+html {
+    max-width: 100%;
+    min-height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+    background-image: url('./Components/images/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(19, 19, 0, 0.2);
+    max-width: 800px;
+    font-size: 16px;
+    backdrop-filter: blur(10px);
+    background-color: rgb(5, 5, 1, 0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-2 {
+    border-color: rgb(200, 157, 97);
+}
+
+.btn {
+    color: #fff;
+    padding: 14px 17px;
+    font-size: 16px;
+    border: 0.5px solid white;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    scale: 1.03;
+    background-color: rgb(121, 79, 40);
+    border: 1px solid black;
+}
+
+.question {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Option button styles */
+.option button {
+    display: block;
+    margin: 5px 0;
+    padding: 7px 14px;
+    width: 90%;
+    background-color: #E7E9EB;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left;
+    font-size: 15px;
+}
+
+.option button:hover {
+    background-color: #cacaca;
+}
+
+.option button.selected {
+    background-color: rgb(121, 79, 40) !important;
+    outline: 1px solid white;
+    color: #fff;
+}
+
+/* Next button styles */
+.next-button {
+    width: 200px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color, color, border-color 0.3s ease;
+}
+
+.next-button:hover {
+    border-color: #000;
+}
+
+.next-button:disabled {
+    visibility: hidden;
+}
+
+/* Countdown Timer */
+#clock {
+    height: 60px;
+    margin: 0vh 0 5vh 0vh;
+    backdrop-filter: blur(10px);
+    background-color: rgba(5, 5, 1, 0.4);
+    width: 60px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+#loading {
+    position: relative;
+    top: 30vh;
+}
+
+#score {
+    background-color: rgb(121, 79, 40);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#scoreResult {
+    margin-top: 20px;
+    text-align: left;
+    color: #000;
+}
+
+.question-correct {
+    background-color: #b7e7b8 !important;
+}
+
+.question-wrong {
+    background-color: rgb(250, 199, 199);
 }
